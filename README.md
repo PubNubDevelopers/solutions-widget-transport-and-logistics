@@ -14,7 +14,7 @@ Using PubNub you can communicate bidirectionally with global assets in real time
 
 ## Demo
 
-A hosted version of this demo can be found at:
+A hosted version of this demo can be found at: https://solutions-widget-transport-logistics.netlify.app/
 
 ## Features
 
