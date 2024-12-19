@@ -55,13 +55,6 @@ function editDevice(target) {
         );
       });
 
-    //  DEMO: used by the interactive demo
-    actionCompleted({
-      action: "View Properties of a Dispatched Vehicle",
-      debug: false,
-    });
-    //  END DEMO: used by the interactive demo
-
     editModal.show();
   }
 }
@@ -81,14 +74,6 @@ async function rebootDevice(deviceId) {
       action: "reboot",
     },
   });
-
-  //  DEMO: used by the interactive demo
-  actionCompleted({
-    action: "Reboot a Temperature Sensor",
-    debug: false,
-  });
-  //  END DEMO: used by the interactive demo
-
   $("#editModal").modal("hide");
 }
 
@@ -106,13 +91,6 @@ async function pushMessage(deviceId, messageText) {
         text: messageText,
       },
     });
-
-    //  DEMO: used by the interactive demo
-    actionCompleted({
-      action: "Send a Push Message to the Driver",
-      debug: false,
-    });
-    //  END DEMO: used by the interactive demo
 
     $("#editModal").modal("hide");
   } else {
@@ -143,13 +121,6 @@ async function reroute(deviceId) {
         route: legs
       }
     })
-
-    //  DEMO: used by the interactive demo
-    actionCompleted({
-      action: "Redirect a Vehicle",
-      debug: false,
-    });
-    //  END DEMO: used by the interactive demo
 
     $("#editModal").modal("hide");
   } else {

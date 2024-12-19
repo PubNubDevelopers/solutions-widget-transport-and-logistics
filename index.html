@@ -30,10 +30,6 @@
     <script src="./js/keys.js"></script>
     <script src="./js/device_edit.js"></script>
     <script src="./js/pubnub_setup.js"></script>
-
-    <!-- Interactive Demo Framework -->
-    <script type="text/javascript"
-        src="https://darryncampbell-pubnub.github.io/pubnub-demo-utils/js/interactive-demo-interface/v2/demo-interface.js"></script>
 </head>
 
 <body id="body" onload="onload();">
@@ -64,11 +60,6 @@
                 <div class="card-header text-center emphasised-body">Registered Vehicles</div>
                 <button type="button" class="btn pn-btn" id="btnDispatchVehicle"
                     onclick="dispatchVehicle_click()">Dispatch Vehicle</button>
-                <div class="form-check" style="margin:5px">
-                    <input type="checkbox" class="form-check-input" id="chkFindMyLocation" onchange="handleChkFindMyLocation();">
-                    <label class="form-check-label text-body-2" for="chkFindMyLocation">Localize: Dispatch Vehicles from Near Me</label>
-                    <span class="location-span text-body-3" id="spanDetectedLocation">[Not Requested]</span>
-                </div>
                 <ul class="list-group list-group-flush" id="registeredVehiclesList"></ul>
             </div>
             <div id="developer-note" class="text-label developer-message developer-message-info">

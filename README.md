@@ -1,6 +1,6 @@
-# Transport & Logistics, and Asset Management Demo written in JavaScript
+# Transport & Logistics, and Delivery Widget
 
-> Application to show how PubNub can be used for transport & logistics use cases, displaying and controlling worldwide assets in real time
+> This application is a simplified UI version of the original demo located at the following [GitHub repository](https://github.com/PubNubDevelopers/transport-logistics-javascript-demo/tree/main). The only functionality not available is the "Localize: Dispatch Vehicles from Near Me". All other functionality, including keyset usage, is the same.
 
 Using PubNub you can communicate bidirectionally with global assets in real time with minimum latency.  This dashboard shows how a transport & logistics solution managed by PubNub might look, specifically:
 
@@ -8,13 +8,13 @@ Using PubNub you can communicate bidirectionally with global assets in real time
 - A temperature sensor on that vehicle will periodically report it's reading.  Rebooting the sensor will cause it to go temporarily offline, and its corresponding PubNub presence will show this online / offline state.
 - You can send a push message to the driver's mobile phone.
 
-> This application is designed to show how a T&L solution with PubNub might look and is deliberately a **canned demo, though you can localize it if you grant location permissions to the page**.  For information on how to take this concept to production, please see the "Further Information" section in this ReadMe.  
+![Screenshot](/media/transport-delivery-widget-overview.png)
 
-![Screenshot](https://raw.githubusercontent.com/PubNubDevelopers/transport-logistics-javascript-demo/main/media/screenshot_square.png)
+> This application is designed to show how a T&L solution with PubNub might look and is deliberately a **canned demo**.  For information on how to take this concept to production, please see the "Further Information" section in this ReadMe.  
 
 ## Demo
 
-A hosted version of this demo can be found at https://www.pubnub.com/demos/transport-logistics/
+A hosted version of this demo can be found at:
 
 ## Features
 
@@ -64,7 +64,7 @@ To run this project yourself you will need a PubNub account and a Google Maps AP
 1. Clone the GitHub repository.
 
 	```bash
-	git clone https://github.com/PubNubDevelopers/transport-logistics-javascript-demo.git
+	git clone https://github.com/PubNubDevelopers/solutions-widget-transport-and-logistics.git
 	```
 1. Navigate to the application directory.
 
@@ -76,7 +76,7 @@ To run this project yourself you will need a PubNub account and a Google Maps AP
 
 1. Add your Google Maps API key which supports the JS Maps API and Geocoding to `js/keys.js`.  See 'Using your own Google Maps API key', below.
 
-1. Start a local web server, for example if you have python installed you can run `python3 -m http.server 8080`.  This is required since the demo application uses web workers.
+1. Start a local web server, for example if you have python installed you can run `python3 -m http.server 8080` or the `live-server` npm package.  This is required since the demo application uses web workers.
 
 1. Load `localhost:8080` within your browser (or whichever port you are running the server on). 
 
