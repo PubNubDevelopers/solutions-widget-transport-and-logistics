@@ -6,7 +6,7 @@
  */
 
 var pubnub = null;
-var iotDevices = null;
+var iotDevices = {};
 var selectedId = null;
 //  The channel name will be based on the URL query string (if provided), allowing us to efficiently retrieve historical messages, required to determine deliveries in progress when the page is launched
 var channelName = null;
@@ -14,7 +14,6 @@ var channelName = null;
 var potentialInFlightDeliveries = [];
 
 async function onload() {
-  iotDevices = {};
   if (!testPubNubKeys()) {
     document.getElementById("noKeysAlert").style.display = "block";
   } else {
