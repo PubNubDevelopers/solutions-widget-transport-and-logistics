@@ -37,7 +37,7 @@
 </head>
 
 <body id="body" onload="onload();">
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <main class="main-content">
         <!-- Sidebar toggle button -->
         <button class="sidebar-toggle" onclick="toggleSidebar()">
             <i class="fa-solid fa-bars"></i>
@@ -50,17 +50,7 @@
             <strong>Cannot find PubNub keys.</strong> Please specify your PubNub keys in keys.js.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-
-        <!-- Main app body -->
-        <div class="container-fluid">
-            <div class="row gy-2">
-                <div class="col-lg-8 col-md-7 nopadding">
-                    <div style="height:100%;height: 700px;" id="map-canvas">.</div>
-                </div>
-                <!-- The right-hand column that previously contained the Registered Vehicles card has been removed -->
-            </div>
-        </div>
-
+        <div id="map-canvas"></div>
         <!-- Sidebar for Registered Vehicles -->
         <div id="sidebar" class="sidebar">
             <div class="card text-dark bg-light mb-3" style="width:100%;">

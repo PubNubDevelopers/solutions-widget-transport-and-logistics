@@ -32,11 +32,32 @@
     --color-navy-400: #94A3B8;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* This ensures no scrollbars if not needed */
+}
+
+
 body {
     font-family: 'Poppins';
     caret-color: transparent;
     background-color: var(--color-background-default);
 }
+
+.main-content {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+#map-canvas {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
 
 .heading-1 {
     font-family: 'Poppins';
@@ -323,15 +344,15 @@ li.cursor-hand {
     position: fixed;
     top: 0;
     right: 0;
-    width: 300px; /* Adjust as desired */
-    height: 100%;
-    background: #ffffff; /* Your card background */
+    width: 300px; /* or a responsive width if desired */
+    height: 100vh;
+    background: #ffffff;
     box-shadow: -2px 0px 5px rgba(0,0,0,0.1);
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
-    z-index: 9999; /* Ensure it overlays other content */
-    overflow-y: auto; /* If content overflows */
-    padding: 10px; /* Adjust as needed */
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 10px;
 }
 
 .sidebar.open {
@@ -339,18 +360,25 @@ li.cursor-hand {
 }
 
 .sidebar-toggle {
-    position: fixed; /* or absolute, depending on your layout */
-    top: 20px; /* Adjust to place where you want */
-    right: 20px; 
+    position: fixed;
+    top: 20px;
+    left: 20px;
     background: none;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    z-index: 10000; /* Ensure on top of map and sidebar */
+    z-index: 10000;
 }
 
- @media screen and (max-height: 697px) {
-    #map-canvas {
-        height: 500px !important;
-    }
+.container-fluid, .row, .col {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
+
+@media (max-width: 600px) {
+    .sidebar {
+      width: 80vw;
+    }
+  }
+  
