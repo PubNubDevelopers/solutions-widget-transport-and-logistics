@@ -233,3 +233,22 @@ function processHistoricalMessages(history) {
     }
   }
 }
+
+function toggleSidebar() {
+  var toast = document.getElementById('menu-toast');
+  toast.style.display = 'none';
+  var sidebar = document.getElementById('sidebar');
+  var sidebarMenuOpen = document.getElementById('sidebarMenuOpen');
+  var closeSideBarMenu = document.getElementById('closeSideBarMenu');
+
+  sidebar.classList.toggle('open');
+
+  if (sidebar.classList.contains('open')) {
+      sidebarMenuOpen.style.display = 'none';
+      closeSideBarMenu.style.display = 'block';
+  } else {
+      sidebarMenuOpen.style.display = 'block';
+      closeSideBarMenu.style.display = 'none';
+  }
+}
+

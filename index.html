@@ -39,7 +39,7 @@
 <body id="body" onload="onload();">
     <main class="main-content">
         <!-- Sidebar toggle button -->
-        <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <button class="sidebar-toggle" id="sidebarMenuOpen" onclick="toggleSidebar()">
             <i class="fa-solid fa-bars"></i>
         </button>
 
@@ -50,9 +50,16 @@
             <strong>Cannot find PubNub keys.</strong> Please specify your PubNub keys in keys.js.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+        <div id="menu-toast" class="menu-toast">
+            <div class="arrow-container">
+                <div class="arrow"></div>
+            </div>
+            <span>Click the Menu Button on the Left to View and Dispatch Vehicles</span>
+        </div>
         <div id="map-canvas"></div>
         <!-- Sidebar for Registered Vehicles -->
         <div id="sidebar" class="sidebar">
+            <button class="close-sidebar-btn" id="closeSideBarMenu" style="display:none" onclick="toggleSidebar()">x</button>
             <div class="card text-dark bg-light mb-3" style="width:100%;">
                 <div class="card-header text-center emphasised-body">Registered Vehicles</div>
                 <button type="button" class="btn pn-btn" id="btnDispatchVehicle"
@@ -69,7 +76,7 @@
                 <span id="login-message-text"><b>Getting Started:</b> Please dispatch a vehicle to start the demo</span>
             </div>
         </div>
-
+  
         <!-- Footer -->
         <footer class="footer pt-3" style="display:none">
             <div class="container-fluid">
@@ -169,12 +176,5 @@
         document.getElementById('body').append(jsElem);
     </script>
     <script src="./js/map.js"></script>
-    <script>
-        // Simple toggle function for the sidebar
-        function toggleSidebar() {
-            var sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('open');
-        }
-    </script>
 </body>
 </html>
