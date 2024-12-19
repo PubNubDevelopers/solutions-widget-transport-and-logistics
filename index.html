@@ -36,11 +36,12 @@
         src="https://darryncampbell-pubnub.github.io/pubnub-demo-utils/js/interactive-demo-interface/v2/demo-interface.js"></script>
 </head>
 
-<!-- Interactive demo hosts this content in a window 824 pixels wide -->
-
 <body id="body" onload="onload();">
-    <!--script src="/reload/reload.js"></script-->
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <!-- Sidebar toggle button -->
+        <button class="sidebar-toggle" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
 
         <!-- Shown if no PubNub keys found in setup.js -->
         <div class="container alert alert-danger alert-dismissible fade show" style="display:none" id="noKeysAlert"
@@ -50,39 +51,32 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
 
-        <!--  Main app body -->
+        <!-- Main app body -->
         <div class="container-fluid">
             <div class="row gy-2">
                 <div class="col-lg-8 col-md-7 nopadding">
                     <div style="height:100%;height: 700px;" id="map-canvas">.</div>
                 </div>
-                <div class="col">
-                    <div class="row gy-2">
-                        <div style="" id="" class="px-0">
-                            <div style="" id="" class="px-0">
-                                <div class="card text-dark bg-light mb-3" style="width:100%;">
-                                    <div class="card-header text-center emphasised-body">Registered Vehicles</div>
-                                    <button type="button" class="btn pn-btn" id="btnDispatchVehicle"
-                                        onclick="dispatchVehicle_click()">Dispatch Vehicle</button>
-                                    <div class="form-check" style="margin:5px">
-                                        <input type="checkbox" class="form-check-input" id="chkFindMyLocation"
-                                            onchange="handleChkFindMyLocation();">
-                                        <label class="form-check-label text-body-2" for="chkFindMyLocation">Localize:
-                                            Dispatch Vehicles from Near Me</label>
-                                        <span class="location-span text-body-3" id="spanDetectedLocation">[Not
-                                            Requested]</span>
-                                    </div>
-                                    <ul class="list-group list-group-flush" id="registeredVehiclesList">
-                                    </ul>
-                                </div>
-                                <div id="developer-note" class="text-label developer-message developer-message-info">
-                                    <img id="developer-note-icon" class="login-message-icon login-message-icon-info">
-                                    <span id="login-message-text"><b>Getting Started:</b> Please dispatch a vehicle to start the demo</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- The right-hand column that previously contained the Registered Vehicles card has been removed -->
+            </div>
+        </div>
+
+        <!-- Sidebar for Registered Vehicles -->
+        <div id="sidebar" class="sidebar">
+            <div class="card text-dark bg-light mb-3" style="width:100%;">
+                <div class="card-header text-center emphasised-body">Registered Vehicles</div>
+                <button type="button" class="btn pn-btn" id="btnDispatchVehicle"
+                    onclick="dispatchVehicle_click()">Dispatch Vehicle</button>
+                <div class="form-check" style="margin:5px">
+                    <input type="checkbox" class="form-check-input" id="chkFindMyLocation" onchange="handleChkFindMyLocation();">
+                    <label class="form-check-label text-body-2" for="chkFindMyLocation">Localize: Dispatch Vehicles from Near Me</label>
+                    <span class="location-span text-body-3" id="spanDetectedLocation">[Not Requested]</span>
                 </div>
+                <ul class="list-group list-group-flush" id="registeredVehiclesList"></ul>
+            </div>
+            <div id="developer-note" class="text-label developer-message developer-message-info">
+                <img id="developer-note-icon" class="login-message-icon login-message-icon-info">
+                <span id="login-message-text"><b>Getting Started:</b> Please dispatch a vehicle to start the demo</span>
             </div>
         </div>
 
@@ -98,8 +92,7 @@
                             </script> PubNub
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                    </div>
+                    <div class="col-lg-6"></div>
                     <div class="col-lg-3">
                         <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                             <li class="nav-item">
@@ -112,7 +105,7 @@
             </div>
         </footer>
 
-        <!--  Modal: Edit Device -->
+        <!-- Modal: Edit Device -->
         <div class="modal" id="editModal" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content p-2">
@@ -126,11 +119,9 @@
                                 Push Message to Driver: </label>
                             <div class="alert alert-primary alert-dismissible fade show" role="alert">
                                 You can send Push Messages, FCM on Android &amp; APNS on Apple using PubNub to simplify
-                                your
-                                application logic and avoid platform-specific code. This demo simulates Push, but you
-                                can see a real Push Message being
-                                exchanged over PubNub using our dedicated <a href="https://www.pubnub.com/demos/push/"
-                                    target="_blank">Push demo</a>
+                                your application logic and avoid platform-specific code. This demo simulates Push, but you
+                                can see a real Push Message being exchanged over PubNub using our dedicated <a
+                                    href="https://www.pubnub.com/demos/push/" target="_blank">Push demo</a>
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                                     aria-label="Close"></button>
                             </div>
@@ -142,14 +133,14 @@
                                     <button type="button" class="btn pn-btn" style="margin-left:5px"
                                         id="editModalPushMessageBtn">Send</button>
                                 </span>
-                            </div> 
-                            <HR width="100%">
+                            </div>
+                            <hr width="100%">
                         </div>
                         <div class="buttonRow">
                             <label class="form-label" style="margin-bottom:0px">Restart the onboard temperature sensor:</label>
                             <button type="button" class="btn pn-btn" id="editModalReboot"><nobr>Reboot Sensor</nobr></button>
                         </div>
-                        <HR width="100%">
+                        <hr width="100%">
                         <div class="buttonRow">
                             <label class="form-label" style="margin-bottom:0px">Change the next delivery location:</label>
                             <button type="button" class="btn pn-btn" style="margin-top: 5px" id="editModalReroute"><nobr>Redirect Vehicle</nobr></button>
@@ -164,13 +155,12 @@
 
     </main>
 
-
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
         integrity="sha384-5AkRS45j4ukf+JbWAfHL8P4onPA9p0KwwP7pUdjSQA3ss9edbJUJc/XcYAiheSSz"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        integrity="sha384-7+zCNj/IjJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
@@ -189,6 +179,12 @@
         document.getElementById('body').append(jsElem);
     </script>
     <script src="./js/map.js"></script>
+    <script>
+        // Simple toggle function for the sidebar
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+    </script>
 </body>
-
 </html>
