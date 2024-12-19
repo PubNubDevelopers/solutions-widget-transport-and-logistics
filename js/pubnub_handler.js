@@ -185,6 +185,10 @@ async function onload() {
       withPresence: true,
     });
   }
+
+  // Automatically dispatch two vehicles after app has finished loading.
+  //dispatchVehicle_click();
+  //setTimeout(dispatchVehicle_click(), 2500);
 }
 
 //  Handler to process messages retrieved from history, to cater for a window loaded after a delivery is en-route

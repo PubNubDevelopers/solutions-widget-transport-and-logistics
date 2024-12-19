@@ -343,12 +343,12 @@ li.cursor-hand {
  .sidebar {
     position: fixed;
     top: 0;
-    right: 0;
-    width: 300px; /* or a responsive width if desired */
+    left: 0; /* Change from right:0 to left:0 */
+    width: 300px; 
     height: 100vh;
     background: #ffffff;
-    box-shadow: -2px 0px 5px rgba(0,0,0,0.1);
-    transform: translateX(100%);
+    box-shadow: 2px 0px 5px rgba(0,0,0,0.1); /* shadow on the opposite side */
+    transform: translateX(-100%); /* Start it off-screen to the left */
     transition: transform 0.3s ease-in-out;
     z-index: 9999;
     overflow-y: auto;
@@ -356,13 +356,13 @@ li.cursor-hand {
 }
 
 .sidebar.open {
-    transform: translateX(0);
+    transform: translateX(0); /* Slide in from the left */
 }
 
 .sidebar-toggle {
     position: fixed;
     top: 20px;
-    left: 20px;
+    left: 20px; /* Button also on left side now */
     background: none;
     border: none;
     font-size: 1.5rem;
