@@ -251,3 +251,20 @@ function toggleSidebar() {
   }
 }
 
+// Checks if a user clicks or taps outside of the navbar to auto close it.
+document.addEventListener('pointerdown', function(event) {
+  var sidebar = document.getElementById('sidebar');
+  var sidebarMenuOpen = document.getElementById('sidebarMenuOpen');
+  var closeSideBarMenu = document.getElementById('closeSideBarMenu');
+
+  if (sidebar.classList.contains('open')) {
+    var isClickInsideSidebar = sidebar.contains(event.target);
+    var isClickOnOpenButton = sidebarMenuOpen.contains(event.target);
+    var isClickOnCloseButton = closeSideBarMenu.contains(event.target);
+
+    // If the pointer event occurred outside the sidebar and not on the toggle buttons, close the sidebar
+    if (!isClickInsideSidebar && !isClickOnOpenButton && !isClickOnCloseButton) {
+      toggleSidebar();
+    }
+  }
+});

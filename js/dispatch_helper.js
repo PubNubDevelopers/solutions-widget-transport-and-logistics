@@ -18,4 +18,10 @@ function dispatchVehicle_click() {
 
   zoomOnPosition(userLocation);
   server_dispatchVehicle(userLocation);
+
+  // Close sidebar after dispatching vehicle
+  var sidebar = document.getElementById('sidebar');
+  if (sidebar.classList.contains('open')) {
+    toggleSidebar();
+  }
 }
